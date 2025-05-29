@@ -75,7 +75,7 @@ async function checkTicketStatus() {
     const status = lastSale.status;
     console.log(`[${new Date().toLocaleTimeString()}] Last status: ${status}`);
 
-//    if (status !== "coming_soon") {
+    if (status !== "coming_soon") {
 
     const currentDate = new Date().toLocaleString(); // or use .toISOString() for full format
     const msg = `🎟️ <b>Ticket Status Changed!</b>
@@ -86,7 +86,7 @@ async function checkTicketStatus() {
 <b>Checked At:</b> ${currentDate}`;
 
     await sendTelegramMessage(msg);
-   // }
+    }
   } catch (err) {
     console.error("❌ Fetch error:", err.message);
     await sendTelegramMessage(err.message);
